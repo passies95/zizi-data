@@ -72,22 +72,34 @@
 
     .legend {
       background: white;
-      padding: 8px 12px;
-      font: 14px/16px Arial, sans-serif;
+      padding: 10px 12px;
+      font: 14px Arial, sans-serif;
       box-shadow: 0 0 15px rgba(0,0,0,0.2);
       border-radius: 5px;
-      line-height: 1.4;
+      line-height: 1.6;
       color: #333;
     }
   
+    .legend-title {
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+  
+    .legend-item {
+      display: flex;
+      align-items: center;
+      margin-bottom: 4px;
+    }
+  
     .legend i {
-      width: 18px;
-      height: 18px;
-      float: left;
+      width: 16px;
+      height: 16px;
+      display: inline-block;
       margin-right: 8px;
-      margin-top: 2px;
+      border-radius: 2px;
       opacity: 0.9;
     }
+
 
     .legend-color {
       width: 20px;
@@ -187,7 +199,7 @@
       		  fillColor: feature.properties.targeted === "Yes" ? "#f0ec9e" : "#cccccc",
       		  weight: 1,
       		  color: "#333",
-      		  fillOpacity: 0.8
+      		  fillOpacity: 0.2
       		};
       	  }
       
@@ -269,9 +281,8 @@
         div.innerHTML += `<i style="background:#cccccc"></i> No<br><br>`;
     
         div.innerHTML += '<strong>Institution Type</strong><br>';
-        div.innerHTML += `<i style="background:#f781bf"></i> ECDE<br>`;
-        div.innerHTML += `<i style="background:#377eb8"></i> Primary<br>`;
-        div.innerHTML += `<i style="background:#4daf4a"></i> Secondary<br>`;
+        div.innerHTML += `<i style="background:#377eb8"></i> Primary School<br>`;
+        div.innerHTML += `<i style="background:#4daf4a"></i> Teacher Traing College (TTC)<br>`;
     
         return div;
       };
