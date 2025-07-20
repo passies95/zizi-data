@@ -175,6 +175,32 @@
         attribution: '&copy; OpenStreetMap contributors'
       }).addTo(map);
 
+      function getCountyStyle(feature) {
+      		return {
+      		  fillColor: feature.properties.targeted === "Yes" ? "#7A2982" : "#cccccc",
+      		  weight: 1,
+      		  color: "#333",
+      		  fillOpacity: 0.6
+      		};
+      	  }
+      
+      	  function onEachCounty(feature, layer) {
+      		const name = feature.properties.name || "Unnamed";
+      		const status = feature.properties.targeted || "Unknown";
+      		layer.bindPopup(`<strong>${name}</strong><br/>Targeted: ${status}`);
+      	  }
+      
+      	  fetch('counties.geojson')
+      		.then(response => response.json())
+      		.then(geojsonData => {
+      		  L.geoJSON(geojsonData, {
+      			style: getCountyStyle,
+      			onEachFeature: onEachCounty
+      		  }).addTo(map);
+      		})
+      		.catch(error => {
+      		  console.error('Error loading counties.geojson:', error);
+      		});
       const geojsonData = {
                 "type": "FeatureCollection",
                 "name": "maths_program_assessment",
