@@ -272,6 +272,8 @@
       		  console.error('Error loading counties.geojson:', error);
       });
 
+       const markers = L.layerGroup();
+
       const geoJsonLayer = L.geoJSON(geojsonData, {
         pointToLayer: (feature, latlng) => {
           const icon = L.divIcon({
@@ -289,7 +291,8 @@
         }
       });
   
-      geoJsonLayer.addTo(map);
+      // geoJsonLayer.addTo(map);
+      markers.addLayer(geoJsonLayer);
 
       combinedLegend.onAdd = function (map) {
         const div = L.DomUtil.create('div', 'info legend');
