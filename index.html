@@ -255,27 +255,32 @@
 
       const markers = L.layerGroup();
 
-      geojsonData.features.forEach(feature => {
-        const coords = feature.geometry.coordinates;
-        const properties = feature.properties;
-
-        const marker = L.marker([coords[1], coords[0]], {
-          icon: L.divIcon({
-            className: properties.category === 'TTC' ? 'ttc-marker' : 'school-marker',
+      const geoJsonLayer = L.geoJSON(geojsonData, {
+        pointToLayer: function (feature, latlng) {
+          const category = feature.properties.category;
+          const icon = L.divIcon({
+            className: category === 'TTC' ? 'ttc-marker' : 'school-marker',
             iconSize: [12, 12]
-          })
-        });
-
-        marker.bindPopup(`<div class="p-2"><strong>${properties.school}</strong><br>${properties.county || ''}</div>`);
-        marker.feature = feature;
-        marker.on('click', function () {
-          showSchoolDetails(properties);
-        });
-
-        markers.addLayer(marker);
+          });
+      
+          const marker = L.marker(latlng, { icon });
+      
+          marker.bindPopup(`
+            <div class="p-2">
+              <strong>${feature.properties.school}</strong><br>
+              ${feature.properties.county || ''}
+            </div>
+          `);
+      
+          marker.on('click', function () {
+            showSchoolDetails(feature.properties);
+          });
+      
+          return marker;
+        }
       });
-
-      markers.addTo(map);
+      
+      markers.addLayer(geoJsonLayer);
 
       combinedLegend.onAdd = function (map) {
         const div = L.DomUtil.create('div', 'info legend');
