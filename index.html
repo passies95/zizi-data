@@ -186,6 +186,35 @@
   </div>
 
   <script>
+
+    const geojsonData = {
+                "type": "FeatureCollection",
+                "name": "maths_program_assessment",
+                "crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+                "features": [
+                    { "type": "Feature", "properties": { "Latitude": -0.607959, "Longitude": 36.5827, "school": "Mwiteithia Primary School", "county": "Nyandarua", "subcounty": "Kinangop", "category": "primary", "id": 1 }, "geometry": { "type": "Point", "coordinates": [ 36.5827, -0.607959 ] } },
+                    { "type": "Feature", "properties": { "Latitude": 0.335738, "Longitude": 37.581852, "school": "Mwangaza Comprehensive School", "county": "Isiolo", "subcounty": "Isiolo", "category": "primary", "id": 2 }, "geometry": { "type": "Point", "coordinates": [ 37.581852, 0.335738 ] } },
+                    { "type": "Feature", "properties": { "Latitude": 0.403005, "Longitude": 37.685065, "school": "Gambela Primary", "county": "Isiolo", "subcounty": "Isiolo", "category": "primary", "id": 3 }, "geometry": { "type": "Point", "coordinates": [ 37.685091725207045, 0.403070196636846 ] } },
+                    { "type": "Feature", "properties": { "Latitude": -1.222049, "Longitude": 36.822976, "school": "Cheleta Primary School", "county": "Nairobi", "subcounty": "Westlands", "category": "primary", "id": 4 }, "geometry": { "type": "Point", "coordinates": [ 36.822976, -1.222049 ] } },
+                    { "type": "Feature", "properties": { "Latitude": -1.310383, "Longitude": 36.784022, "school": "Kibera Primary School", "county": "Nairobi", "subcounty": "Kibra", "category": "primary", "id": 5 }, "geometry": { "type": "Point", "coordinates": [ 36.784022, -1.310383 ] } },
+                    { "type": "Feature", "properties": { "Latitude": -0.270311, "Longitude": 36.373719, "school": "Olkalou Comprehensive school", "county": "Nyandarua", "subcounty": "Ol Kalou", "category": "primary", "id": 6 }, "geometry": { "type": "Point", "coordinates": [ 36.373719, -0.270311 ] } },
+                    { "type": "Feature", "properties": { "Latitude": -1.284603, "Longitude": 36.750662, "school": "Restoration Educational Center", "county": "Nairobi", "subcounty": "Dagoretti North", "category": "primary", "id": 7 }, "geometry": { "type": "Point", "coordinates": [ 36.750663032323665, -1.284784688964858 ] } },
+                    { "type": "Feature", "properties": { "Latitude": -1.314617, "Longitude": 36.885556, "school": "Mukuru kwa Njenga Primary School", "county": "Nairobi", "subcounty": "Embakasi South", "category": "primary", "id": 8 }, "geometry": { "type": "Point", "coordinates": [ 36.885556, -1.314617 ] } },
+                    { "type": "Feature", "properties": { "Latitude": -0.300033, "Longitude": 36.51063, "school": "Gatondo Primary School", "county": "Nyandarua", "subcounty": "Kipipiri", "category": "primary", "id": 9 }, "geometry": { "type": "Point", "coordinates": [ 36.51063, -0.300033 ] } },
+                    { "type": "Feature", "properties": { "Latitude": 0.274542, "Longitude": 37.54413, "school": "Elsa Primary", "county": "Isiolo", "subcounty": "Isiolo", "category": "primary", "id": 10 }, "geometry": { "type": "Point", "coordinates": [ 37.54413, 0.274542 ] } },
+                    { "type": "Feature", "properties": { "Latitude": -1.272625, "Longitude": 36.746605, "school": "Angaza Buene Avista Academy", "county": "Nairobi", "subcounty": "Westlands", "category": "primary", "id": 11 }, "geometry": { "type": "Point", "coordinates": [ 36.746605, -1.272625 ] } },
+                    { "type": "Feature", "properties": { "Latitude": -1.280725, "Longitude": 36.774366, "school": "Lavington Primary School", "county": "Nairobi", "subcounty": "Westlands", "category": "primary", "id": 12 }, "geometry": { "type": "Point", "coordinates": [ 36.774366, -1.280725 ] } },
+                    { "type": "Feature", "properties": { "Latitude": 0.3594634, "Longitude": 37.612219, "school": "Isiolo Barracks Primary", "county": "Isiolo", "subcounty": "Isiolo", "category": "primary", "id": 13 }, "geometry": { "type": "Point", "coordinates": [ 37.612238336283895, 0.359357980193277 ] } },
+                    { "type": "Feature", "properties": { "Latitude": -0.228421, "Longitude": 36.385076, "school": "Hezta Comprehensive Schools", "county": "Nyandarua", "subcounty": "Ol Kalou", "category": "primary", "id": 14 }, "geometry": { "type": "Point", "coordinates": [ 36.385076, -0.228421 ] } },
+                    { "type": "Feature", "properties": { "Latitude": -1.281307, "Longitude": 36.786852, "school": "Jacaranda Special School", "county": "Nairobi", "subcounty": "Dagoretti North", "category": "primary", "id": 15 }, "geometry": { "type": "Point", "coordinates": [ 36.786852, -1.281307 ] } },
+                    { "type": "Feature", "properties": { "Latitude": -1.287782, "Longitude": 36.834509, "school": "Hospital Hill Primary School", "county": "Nairobi", "subcounty": "Westlands", "category": "primary", "id": 16 }, "geometry": { "type": "Point", "coordinates": [ 36.834509, -1.287782 ] } },
+                    { "type": "Feature", "properties": { "Latitude": -0.875593, "Longitude": 36.573387, "school": "Mutonyora Comprehensive School", "county": "Nyandarua", "subcounty": "Kinangop", "category": "primary", "id": 17 }, "geometry": { "type": "Point", "coordinates": [ 36.573556301080892, -0.874721718827613 ] } },
+                    { "type": "Feature", "properties": { "Latitude": 0.347313302, "Longitude": 37.58635164, "school": "Little Angels", "county": "Isiolo", "subcounty": "Isiolo", "category": "primary", "id": 18 }, "geometry": { "type": "Point", "coordinates": [ 37.58631390797094, 0.347305222712075 ] } },
+                    { "type": "Feature", "properties": { "Latitude": -1.057695059297262, "Longitude": 35.861874250058996, "school": "Narok Teachers Training College", "county": "Narok", "subcounty": null, "category": "TTC", "id": 19 }, "geometry": { "type": "Point", "coordinates": [ 35.861874248038056, -1.057695059297262 ] } },
+                    { "type": "Feature", "properties": { "Latitude": -1.27550140557, "Longitude": 36.661981862151649, "school": "Thogoto TTC", "county": "Kiambu", "subcounty": null, "category": "TTC", "id": 20 }, "geometry": { "type": "Point", "coordinates": [ 36.661981862151642, -1.275501402543158 ] } }
+                ]
+    };
+    
     document.addEventListener('DOMContentLoaded', function () {
       const map = L.map('map', {
         center: [0.0236, 37.9062],
@@ -224,63 +253,25 @@
       		.catch(error => {
       		  console.error('Error loading counties.geojson:', error);
       });
-      
-      const geojsonData = {
-                "type": "FeatureCollection",
-                "name": "maths_program_assessment",
-                "crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
-                "features": [
-                    { "type": "Feature", "properties": { "Latitude": -0.607959, "Longitude": 36.5827, "school": "Mwiteithia Primary School", "county": "Nyandarua", "subcounty": "Kinangop", "category": "primary", "id": 1 }, "geometry": { "type": "Point", "coordinates": [ 36.5827, -0.607959 ] } },
-                    { "type": "Feature", "properties": { "Latitude": 0.335738, "Longitude": 37.581852, "school": "Mwangaza Comprehensive School", "county": "Isiolo", "subcounty": "Isiolo", "category": "primary", "id": 2 }, "geometry": { "type": "Point", "coordinates": [ 37.581852, 0.335738 ] } },
-                    { "type": "Feature", "properties": { "Latitude": 0.403005, "Longitude": 37.685065, "school": "Gambela Primary", "county": "Isiolo", "subcounty": "Isiolo", "category": "primary", "id": 3 }, "geometry": { "type": "Point", "coordinates": [ 37.685091725207045, 0.403070196636846 ] } },
-                    { "type": "Feature", "properties": { "Latitude": -1.222049, "Longitude": 36.822976, "school": "Cheleta Primary School", "county": "Nairobi", "subcounty": "Westlands", "category": "primary", "id": 4 }, "geometry": { "type": "Point", "coordinates": [ 36.822976, -1.222049 ] } },
-                    { "type": "Feature", "properties": { "Latitude": -1.310383, "Longitude": 36.784022, "school": "Kibera Primary School", "county": "Nairobi", "subcounty": "Kibra", "category": "primary", "id": 5 }, "geometry": { "type": "Point", "coordinates": [ 36.784022, -1.310383 ] } },
-                    { "type": "Feature", "properties": { "Latitude": -0.270311, "Longitude": 36.373719, "school": "Olkalou Comprehensive school", "county": "Nyandarua", "subcounty": "Ol Kalou", "category": "primary", "id": 6 }, "geometry": { "type": "Point", "coordinates": [ 36.373719, -0.270311 ] } },
-                    { "type": "Feature", "properties": { "Latitude": -1.284603, "Longitude": 36.750662, "school": "Restoration Educational Center", "county": "Nairobi", "subcounty": "Dagoretti North", "category": "primary", "id": 7 }, "geometry": { "type": "Point", "coordinates": [ 36.750663032323665, -1.284784688964858 ] } },
-                    { "type": "Feature", "properties": { "Latitude": -1.314617, "Longitude": 36.885556, "school": "Mukuru kwa Njenga Primary School", "county": "Nairobi", "subcounty": "Embakasi South", "category": "primary", "id": 8 }, "geometry": { "type": "Point", "coordinates": [ 36.885556, -1.314617 ] } },
-                    { "type": "Feature", "properties": { "Latitude": -0.300033, "Longitude": 36.51063, "school": "Gatondo Primary School", "county": "Nyandarua", "subcounty": "Kipipiri", "category": "primary", "id": 9 }, "geometry": { "type": "Point", "coordinates": [ 36.51063, -0.300033 ] } },
-                    { "type": "Feature", "properties": { "Latitude": 0.274542, "Longitude": 37.54413, "school": "Elsa Primary", "county": "Isiolo", "subcounty": "Isiolo", "category": "primary", "id": 10 }, "geometry": { "type": "Point", "coordinates": [ 37.54413, 0.274542 ] } },
-                    { "type": "Feature", "properties": { "Latitude": -1.272625, "Longitude": 36.746605, "school": "Angaza Buene Avista Academy", "county": "Nairobi", "subcounty": "Westlands", "category": "primary", "id": 11 }, "geometry": { "type": "Point", "coordinates": [ 36.746605, -1.272625 ] } },
-                    { "type": "Feature", "properties": { "Latitude": -1.280725, "Longitude": 36.774366, "school": "Lavington Primary School", "county": "Nairobi", "subcounty": "Westlands", "category": "primary", "id": 12 }, "geometry": { "type": "Point", "coordinates": [ 36.774366, -1.280725 ] } },
-                    { "type": "Feature", "properties": { "Latitude": 0.3594634, "Longitude": 37.612219, "school": "Isiolo Barracks Primary", "county": "Isiolo", "subcounty": "Isiolo", "category": "primary", "id": 13 }, "geometry": { "type": "Point", "coordinates": [ 37.612238336283895, 0.359357980193277 ] } },
-                    { "type": "Feature", "properties": { "Latitude": -0.228421, "Longitude": 36.385076, "school": "Hezta Comprehensive Schools", "county": "Nyandarua", "subcounty": "Ol Kalou", "category": "primary", "id": 14 }, "geometry": { "type": "Point", "coordinates": [ 36.385076, -0.228421 ] } },
-                    { "type": "Feature", "properties": { "Latitude": -1.281307, "Longitude": 36.786852, "school": "Jacaranda Special School", "county": "Nairobi", "subcounty": "Dagoretti North", "category": "primary", "id": 15 }, "geometry": { "type": "Point", "coordinates": [ 36.786852, -1.281307 ] } },
-                    { "type": "Feature", "properties": { "Latitude": -1.287782, "Longitude": 36.834509, "school": "Hospital Hill Primary School", "county": "Nairobi", "subcounty": "Westlands", "category": "primary", "id": 16 }, "geometry": { "type": "Point", "coordinates": [ 36.834509, -1.287782 ] } },
-                    { "type": "Feature", "properties": { "Latitude": -0.875593, "Longitude": 36.573387, "school": "Mutonyora Comprehensive School", "county": "Nyandarua", "subcounty": "Kinangop", "category": "primary", "id": 17 }, "geometry": { "type": "Point", "coordinates": [ 36.573556301080892, -0.874721718827613 ] } },
-                    { "type": "Feature", "properties": { "Latitude": 0.347313302, "Longitude": 37.58635164, "school": "Little Angels", "county": "Isiolo", "subcounty": "Isiolo", "category": "primary", "id": 18 }, "geometry": { "type": "Point", "coordinates": [ 37.58631390797094, 0.347305222712075 ] } },
-                    { "type": "Feature", "properties": { "Latitude": -1.057695059297262, "Longitude": 35.861874250058996, "school": "Narok Teachers Training College", "county": "Narok", "subcounty": null, "category": "TTC", "id": 19 }, "geometry": { "type": "Point", "coordinates": [ 35.861874248038056, -1.057695059297262 ] } },
-                    { "type": "Feature", "properties": { "Latitude": -1.27550140557, "Longitude": 36.661981862151649, "school": "Thogoto TTC", "county": "Kiambu", "subcounty": null, "category": "TTC", "id": 20 }, "geometry": { "type": "Point", "coordinates": [ 36.661981862151642, -1.275501402543158 ] } }
-                ]
-            };
-
-      const markers = L.layerGroup();
 
       const geoJsonLayer = L.geoJSON(geojsonData, {
-        pointToLayer: function (feature, latlng) {
-          const category = feature.properties.category;
+        pointToLayer: (feature, latlng) => {
           const icon = L.divIcon({
-            className: category === 'TTC' ? 'ttc-marker' : 'school-marker',
+            className: feature.properties.category === 'TTC' ? 'ttc-marker' : 'school-marker',
             iconSize: [12, 12]
           });
-      
-          const marker = L.marker(latlng, { icon });
-      
-          marker.bindPopup(`
-            <div class="p-2">
-              <strong>${feature.properties.school}</strong><br>
-              ${feature.properties.county || ''}
-            </div>
-          `);
-      
-          marker.on('click', function () {
-            showSchoolDetails(feature.properties);
+          return L.marker(latlng, { icon });
+        },
+        onEachFeature: (feature, layer) => {
+          const props = feature.properties;
+          layer.bindPopup(`<div class="p-2"><strong>${props.school}</strong><br>${props.county || ''}</div>`);
+          layer.on('click', () => {
+            showSchoolDetails(props);
           });
-      
-          return marker;
         }
       });
-      
-      markers.addLayer(geoJsonLayer);
+  
+      geoJsonLayer.addTo(map);
 
       combinedLegend.onAdd = function (map) {
         const div = L.DomUtil.create('div', 'info legend');
