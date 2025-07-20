@@ -187,7 +187,11 @@
 
   <script>
     document.addEventListener('DOMContentLoaded', function () {
-      const map = L.map('map').setView([0.0236, 37.9062], 7);
+      const map = L.map('map', {
+        center: [0.0236, 37.9062],
+        zoom: 7,
+        minZoom: 6
+      });
       const combinedLegend = L.control({ position: 'bottomright' });
 
       L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -219,7 +223,7 @@
       		})
       		.catch(error => {
       		  console.error('Error loading counties.geojson:', error);
-      		});
+      });
       
       const geojsonData = {
                 "type": "FeatureCollection",
