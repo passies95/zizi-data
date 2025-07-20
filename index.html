@@ -72,15 +72,21 @@
 
     .legend {
       background: white;
-      padding: 10px;
-      border-radius: 5px;
+      padding: 8px 12px;
+      font: 14px/16px Arial, sans-serif;
       box-shadow: 0 0 15px rgba(0,0,0,0.2);
+      border-radius: 5px;
+      line-height: 1.4;
+      color: #333;
     }
-
-    .legend-item {
-      display: flex;
-      align-items: center;
-      margin-bottom: 5px;
+  
+    .legend i {
+      width: 18px;
+      height: 18px;
+      float: left;
+      margin-right: 8px;
+      margin-top: 2px;
+      opacity: 0.9;
     }
 
     .legend-color {
@@ -170,6 +176,7 @@
   <script>
     document.addEventListener('DOMContentLoaded', function () {
       const map = L.map('map').setView([0.0236, 37.9062], 7);
+      const combinedLegend = L.control({ position: 'bottomright' });
 
       L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         attribution: '&copy; OpenStreetMap contributors'
@@ -201,6 +208,7 @@
       		.catch(error => {
       		  console.error('Error loading counties.geojson:', error);
       		});
+      
       const geojsonData = {
                 "type": "FeatureCollection",
                 "name": "maths_program_assessment",
@@ -252,6 +260,25 @@
       });
 
       markers.addTo(map);
+
+      combinedLegend.onAdd = function (map) {
+        const div = L.DomUtil.create('div', 'info legend');
+        
+        div.innerHTML += '<strong>Targeted County</strong><br>';
+        div.innerHTML += `<i style="background:#f0ec9e"></i> Yes<br>`;
+        div.innerHTML += `<i style="background:#cccccc"></i> No<br><br>`;
+    
+        div.innerHTML += '<strong>Institution Type</strong><br>';
+        div.innerHTML += `<i style="background:#f781bf"></i> ECDE<br>`;
+        div.innerHTML += `<i style="background:#377eb8"></i> Primary<br>`;
+        div.innerHTML += `<i style="background:#4daf4a"></i> Secondary<br>`;
+    
+        return div;
+      };
+    
+      combinedLegend.addTo(map);
+      
+
 
       function showSchoolDetails(properties) {
         const div = document.getElementById('school-details');
