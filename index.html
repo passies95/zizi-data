@@ -276,6 +276,7 @@
       combinedLegend.onAdd = function (map) {
         const div = L.DomUtil.create('div', 'info legend');
         
+        div.innerHTML += '<strong>Legend</strong><br><br>';
         div.innerHTML += '<strong>Targeted County</strong><br>';
         div.innerHTML += `<i style="background:#f0ec9e"></i> Yes<br>`;
         div.innerHTML += `<i style="background:#cccccc"></i> No<br><br>`;
