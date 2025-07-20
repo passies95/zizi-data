@@ -272,39 +272,20 @@
       		  console.error('Error loading counties.geojson:', error);
       });
 
-       const markers = L.layerGroup();
+      const markers = L.markerClusterGroup();
 
-      // const geoJsonLayer = L.geoJSON(geojsonData, {
-      //   pointToLayer: (feature, latlng) => {
-      //     const icon = L.divIcon({
-      //       className: feature.properties.category === 'TTC' ? 'ttc-marker' : 'school-marker',
-      //       iconSize: [12, 12]
-      //     });
-      //     return L.marker(latlng, { icon });
-      //   },
-      //   onEachFeature: (feature, layer) => {
-      //     const props = feature.properties;
-      //     layer.bindPopup(`<div class="p-2"><strong>${props.school}</strong><br>${props.county || ''}</div>`);
-      //     layer.on('click', () => {
-      //       showSchoolDetails(props);
-      //     });
-      //   }
-      // });
-  
-      // // geoJsonLayer.addTo(map);
-      // markers.addLayer(geoJsonLayer);
-
+      // Loop through GeoJSON features
       geojsonData.features.forEach(feature => {
-        const coords = feature.geometry.coordinates;
+        const coords = feature.geometry.coordinates; // [lng, lat]
         const properties = feature.properties;
       
-        const marker = L.marker([coords[1], coords[0]], {
-          icon: L.divIcon({
-            className: properties.category === 'TTC' ? 'ttc-marker' : 'school-marker',
-            iconSize: [12, 12]
-          })
-        });
+        // Convert to [lat, lng] for Leaflet
+        const latLng = [coords[1], coords[0]];
       
+        // Create standard Leaflet marker
+        const marker = L.marker(latLng);
+      
+        // Bind popup
         marker.bindPopup(`
           <div class="p-2">
             <strong>${properties.school}</strong><br>
@@ -312,17 +293,20 @@
           </div>
         `);
       
+        // Optional: store feature reference
         marker.feature = feature;
       
-        marker.on('click', function () {
+        // Optional click handler
+        marker.on('click', () => {
           showSchoolDetails(properties);
         });
       
+        // Add marker to cluster group
         markers.addLayer(marker);
       });
-
-      markers.addTo(map);
-
+      
+      // Add marker cluster group to map
+      map.addLayer(markers);
 
       combinedLegend.onAdd = function (map) {
         const div = L.DomUtil.create('div', 'info legend');
