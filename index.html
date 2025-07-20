@@ -321,6 +321,8 @@
         markers.addLayer(marker);
       });
 
+      markers.addTo(map);
+
 
       combinedLegend.onAdd = function (map) {
         const div = L.DomUtil.create('div', 'info legend');
